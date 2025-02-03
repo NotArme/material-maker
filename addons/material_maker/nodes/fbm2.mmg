@@ -433,6 +433,14 @@
 		],
 		"inputs": [
 			{
+				"default": "$persistence",
+				"label": "6:",
+				"longdesc": "An optional input to drive the persistence",
+				"name": "persistence_in",
+				"shortdesc": "Persistence Input",
+				"type": "f"
+			},
+			{
 				"default": "$offset",
 				"label": "7:",
 				"longdesc": "An optional input to drive the offset",
@@ -446,7 +454,7 @@
 		"name": "FBM Noise",
 		"outputs": [
 			{
-				"f": "fbm_2d_$noise($(uv), vec2($(scale_x), $(scale_y)), int($(folds)), int($(iterations)), $(persistence), $offset_in($uv), $(seed))",
+				"f": "fbm_2d_$noise($(uv), vec2($(scale_x), $(scale_y)), int($(folds)), int($(iterations)), $persistence_in($uv), $offset_in($uv), $(seed))",
 				"longdesc": "Shows a greyscale image of the generated noise",
 				"shortdesc": "Output",
 				"type": "f"
