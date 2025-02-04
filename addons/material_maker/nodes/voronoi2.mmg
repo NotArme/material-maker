@@ -14,7 +14,7 @@
 	},
 	"seed_int": 0,
 	"shader_model": {
-		"code": "vec4 $(name_uv)_xyzw = voronoi($uv, vec2($scale_x, $scale_y), vec2($stretch_y, $stretch_x), $intensity, $randomness, $seed);",
+		"code": "vec4 $(name_uv)_xyzw = voronoi($uv, vec2($scale_x, $scale_y), vec2(($stretch_y*$stretch_y_in($uv)), $stretch_x*$stretch_x_in($uv)), $intensity * $intensity_in($uv), $randomness * $randomness_in($uv), $seed);",
 		"global": [
 			"// Based on https://www.shadertoy.com/view/ldl3W8",
 			"// The MIT License",
@@ -64,7 +64,38 @@
 			""
 		],
 		"inputs": [
-
+			{
+				"default": "1.0",
+				"label": "3:",
+				"longdesc": "An optional input to drive the Strech in the X axis",
+				"name": "stretch_x_in",
+				"shortdesc": "Stretch X Input",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "4:",
+				"longdesc": "An optional input to drive the Strech in the Y axis",
+				"name": "stretch_y_in",
+				"shortdesc": "Stretch Y Input",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "5:",
+				"longdesc": "An optional input to drive the intensity",
+				"name": "intensity_in",
+				"shortdesc": "Intensity Input",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "6:",
+				"longdesc": "An optional input to drive the randomness",
+				"name": "randomness_in",
+				"shortdesc": "Randomess Input",
+				"type": "f"
+			}
 		],
 		"instance": "",
 		"longdesc": "Generates several images from a tileable voronoi noise",

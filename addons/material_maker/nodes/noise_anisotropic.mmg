@@ -32,14 +32,29 @@
 			""
 		],
 		"inputs": [
-
+			{
+				"default": "1.0",
+				"label": "3:",
+				"longdesc": "An optional input to drive the smoothness",
+				"name": "smoothness_in",
+				"shortdesc": "Smoothness Input",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "4:",
+				"longdesc": "An optional input to drive the interpolation",
+				"name": "interpolation_in",
+				"shortdesc": "Interpolation Input",
+				"type": "f"
+			}
 		],
 		"instance": "",
 		"longdesc": "Generates x-axis interpolated value noise",
 		"name": "Anisotropic Noise",
 		"outputs": [
 			{
-				"f": "anisotropic($(uv), vec2($(scale_x), $(scale_y)), $(seed), $(smoothness), $(interpolation))",
+				"f": "anisotropic($(uv), vec2($(scale_x), $(scale_y)), $(seed), $(smoothness)*$smoothness_in($uv), $(interpolation)*$interpolation_in($uv))",
 				"longdesc": "Shows a greyscale value noise",
 				"shortdesc": "Output",
 				"type": "f"

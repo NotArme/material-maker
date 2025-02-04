@@ -38,14 +38,21 @@
 			""
 		],
 		"inputs": [
-
+			{
+				"default": "$persistence",
+				"label": "4:",
+				"longdesc": "An optional input to drive the persistence",
+				"name": "persistence_in",
+				"shortdesc": "Persistence Input",
+				"type": "f"
+			}
 		],
 		"instance": "",
 		"longdesc": "Generates several octaves of greyscale value noise",
 		"name": "Value Noise",
 		"outputs": [
 			{
-				"f": "perlin($(uv), vec2($(scale_x), $(scale_y)), int($(iterations)), $(persistence), $(seed))",
+				"f": "perlin($(uv), vec2($(scale_x), $(scale_y)), int($(iterations)), $(persistence)*$persistence_in($uv), $(seed))",
 				"longdesc": "Shows a greyscale value noise",
 				"shortdesc": "Output",
 				"type": "f"

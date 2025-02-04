@@ -38,7 +38,14 @@
 			""
 		],
 		"inputs": [
-
+			{
+				"default": "$persistence",
+				"label": "4:",
+				"longdesc": "An optional input to drive the persistence",
+				"name": "persistence_in",
+				"shortdesc": "Persistence Input",
+				"type": "f"
+			}
 		],
 		"instance": "",
 		"longdesc": "Generates several octaves of color value noise",
@@ -46,7 +53,7 @@
 		"outputs": [
 			{
 				"longdesc": "Shows a color value noise",
-				"rgb": "perlin_color($(uv), vec2($(scale_x), $(scale_y)), int($(iterations)), $(persistence), $(seed))",
+				"rgb": "perlin_color($(uv), vec2($(scale_x), $(scale_y)), int($(iterations)), $(persistence)*$persistence_in($uv), $(seed))",
 				"shortdesc": "Output",
 				"type": "rgb"
 			}
