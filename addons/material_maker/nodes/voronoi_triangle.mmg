@@ -13,7 +13,7 @@
 	},
 	"seed_int": 1479392895,
 	"shader_model": {
-		"code": "mat3 $(name_uv)_m3 = tri_voronoi($uv, vec2($scale_x, $scale_y), vec2($stretch_y,$stretch_x), $randomness, $seed);",
+		"code": "mat3 $(name_uv)_m3 = tri_voronoi($uv, vec2($scale_x, $scale_y), vec2($stretch_y*$stretch_x_in($uv),$stretch_x*$stretch_y_in($uv)), $randomness, $seed);",
 		"global": [
 			"// Based on https://www.shadertoy.com/view/ss3fW4",
 			"const float s3 = 0.866025;",
@@ -162,7 +162,22 @@
 			"}"
 		],
 		"inputs": [
-
+			{
+				"default": "1.0",
+				"label": "3:",
+				"longdesc": "Map that affects the stretch x parameter",
+				"name": "stretch_x_in",
+				"shortdesc": "Stretch X Map",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "4:",
+				"longdesc": "Map that affects the stretch y parameter",
+				"name": "stretch_y_in",
+				"shortdesc": "Stretch Y Map",
+				"type": "f"
+			}
 		],
 		"instance": "",
 		"longdesc": "Generates several images from a tileable voronoi noise",

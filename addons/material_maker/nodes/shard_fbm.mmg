@@ -79,6 +79,14 @@
 				"type": "f"
 			},
 			{
+				"default": "$per",
+				"label": "6:",
+				"longdesc": "An optional input to drive the persistence",
+				"name": "per_in",
+				"shortdesc": "Persistence Input",
+				"type": "f"
+			},
+			{
 				"default": "$off",
 				"label": "7:",
 				"longdesc": "An optional input to drive the offset",
@@ -92,7 +100,7 @@
 		"name": "Shard FBM Noise",
 		"outputs": [
 			{
-				"f": "fbm_shard(vec3($uv,$offset_in($uv)),vec3($sx,$sy,1.0),int($folds),int($iter),$per,pow(2,$sharp_in($uv)*$sharp*8.0),$seed)",
+				"f": "fbm_shard(vec3($uv,$offset_in($uv)),vec3($sx,$sy,1.0),int($folds),int($iter),$per_in($uv),pow(2,$sharp_in($uv)*$sharp*8.0),$seed)",
 				"longdesc": "Greyscale image of the generated noise",
 				"shortdesc": "Output",
 				"type": "f"

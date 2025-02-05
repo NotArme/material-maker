@@ -55,14 +55,37 @@
 			"}"
 		],
 		"inputs": [
-
+			{
+				"default": "1.0",
+				"label": "5:",
+				"longdesc": "An optional input to drive the persistence",
+				"name": "persistence_in",
+				"shortdesc": "Persistence Input",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "6:",
+				"longdesc": "An optional input to drive the frequency",
+				"name": "frequency_in",
+				"shortdesc": "Frequency Input",
+				"type": "f"
+			},
+			{
+				"default": "1.0",
+				"label": "7:",
+				"longdesc": "An optional input to drive the offset",
+				"name": "offset_in",
+				"shortdesc": "Offset Input",
+				"type": "f"
+			}
 		],
 		"instance": "",
 		"longdesc": "Generates several octaves of greyscale wavelet noise",
 		"name": "Wavelet Noise",
 		"outputs": [
 			{
-				"f": "wavelet_noise($(uv), vec2($(scale_x), $(scale_y)), int($(iterations)), $(persistence), $(seed), $frequency, $offset, $type)",
+				"f": "wavelet_noise($(uv), vec2($(scale_x), $(scale_y)), int($(iterations)), $(persistence)*$persistence_in($uv), $(seed), $frequency*$frequency_in($uv), $offset*$offset_in($uv), $type)",
 				"longdesc": "Shows a greyscale wavelet noise",
 				"shortdesc": "Output",
 				"type": "f"
